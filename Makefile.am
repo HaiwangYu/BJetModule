@@ -2,6 +2,7 @@ AUTOMAKE_OPTIONS = foreign
 
 INCLUDES = \
   -I$(includedir) \
+  -I$(MY_INSTALL)/include \
   -I$(OFFLINE_MAIN)/include \
   -I`root-config --incdir`
 
