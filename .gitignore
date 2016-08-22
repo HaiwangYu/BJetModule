@@ -1,0 +1,14 @@
+/.cproject
+/.project
+/aclocal.m4
+/BJetModule_Dict.C
+/BJetModule_Dict.h
+/config.guess
+/config.sub
+/configure
+/depcomp
+/install-sh
+/ltmain.sh
+/Makefile.in
+/missing
+/testexternals.C
