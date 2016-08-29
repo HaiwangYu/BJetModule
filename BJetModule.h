@@ -70,6 +70,10 @@ private:
 	float _b_track_dca2d_error[1000];
 	float _b_track_dca2d_phi[1000];
 
+	float _b_track_quality[1000];
+	float _b_track_chisq[1000];
+	int _b_track_ndf[1000];
+
 	unsigned int _b_track_best_nclusters[1000];
 	unsigned int _b_track_best_embed[1000];
 	bool _b_track_best_primary[1000];

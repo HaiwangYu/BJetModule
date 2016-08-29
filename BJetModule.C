@@ -78,6 +78,9 @@ int BJetModule::Init(PHCompositeNode *topNode) {
 		_b_track_dca2d[n] = -1;
 		_b_track_dca2d_error[n] = -1;
 		_b_track_dca2d_phi[n] = -99;
+		_b_track_quality[n] = -99;
+		_b_track_chisq[n] = -99;
+		_b_track_ndf[n] = -99;
 
 		_b_track_best_nclusters[n] = 0;
 		_b_track_best_embed[n] = 0;
@@ -135,6 +138,13 @@ int BJetModule::Init(PHCompositeNode *topNode) {
 			"track_dca2d_error[track_n]/F");
 	_tree->Branch("track_dca2d_phi", _b_track_dca2d_phi,
 			"track_dca2d_phi[track_n]/F");
+
+	_tree->Branch("track_quality", _b_track_quality,
+			"track_quality[track_n]/F");
+	_tree->Branch("track_chisq", _b_track_chisq,
+			"track_chisq[track_n]/F");
+	_tree->Branch("track_ndf", _b_track_ndf,
+			"track_ndf[track_n]/F");
 
 	_tree->Branch("track_best_nclusters", _b_track_best_nclusters,
 			"track_best_nclusters[track_n]/i");
@@ -448,6 +458,10 @@ int BJetModule::process_event(PHCompositeNode *topNode) {
 		_b_track_dca2d[_b_track_n] = dca2d;
 		_b_track_dca2d_phi[_b_track_n] = dca_phi;
 		_b_track_dca2d_error[_b_track_n] = dca2d_error;
+
+		_b_track_quality[_b_track_n] = track->get_quality();
+		_b_track_chisq[_b_track_n] = track->get_chisq();
+		_b_track_ndf[_b_track_n] = track->get_ndf();
 
 		_b_track_best_nclusters[_b_track_n] = truth_nclusters;
 		_b_track_best_embed[_b_track_n] = truth_embed_id;
